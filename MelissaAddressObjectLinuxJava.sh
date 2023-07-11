@@ -154,7 +154,7 @@ CheckSOs()
 }
 
 ########################## Main ############################
-printf "\n===================== Melissa Address Object =======================\n                    [ Python3 | Linux | 64BIT ]\n"
+printf "\n===================== Melissa Address Object =======================\n                    [ Java | Linux | 64BIT ]\n"
 
 # Get license (either from parameters or user input)
 if [ -z "$license" ];

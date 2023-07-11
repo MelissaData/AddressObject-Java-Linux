@@ -93,13 +93,13 @@ https://www.oracle.com/java/technologies/downloads/#jdk19-linux
 Or you may also download Java 19 onto your Linux-based computer with
 `wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz`
 
-You may have to add "sudo" beofre the above command as well if you are using a virtual machine.
+You may have to add "sudo" before the above command as well if you are using a virtual machine.
 
 
 Next, navigate to where the JDK was downloaded and extract the contents. You may use the command:
 `sudo tar -xvzf ~/Downloads/jdk-19_linux-x64_bin.tar.gz`
 
-Next, set up your environment. Start by enteirng the command `sudo nano /etc/environment` to bring up your environment PATH and add `/usr/lib/jvm/jdk-19.0.1/bin`. PATH variable must be separated by a colon so be sure to add one to the beginning of the path if there are already variables present.
+Next, set up your environment. Start by entering the command `sudo nano /etc/environment` to bring up your environment PATH and add `/usr/lib/jvm/jdk-19.0.1/bin`. PATH variable must be separated by a colon so be sure to add one to the beginning of the path if there are already variables present.
 
 Note that the version of the Java 19 JDK you downloaded may be slightly different, in which case be sure to adjust your statements accordingly. For example you may need to add `/usr/lib/jvm/jdk-19.0.2/bin` to you PATH instead depending on if Java has updated their Java 19 JDK
 

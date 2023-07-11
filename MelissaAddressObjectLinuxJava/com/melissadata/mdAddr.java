@@ -738,24 +738,8 @@ public final static class MailboxLookupMode {
 		return mdAddrJNI.GetCMRA(I);
 	}
 
-	public String GetDsfNoStats() {
-		return mdAddrJNI.GetDsfNoStats(I);
-	}
-
-	public String GetDsfNoStatReasonCode() {
-		return mdAddrJNI.GetDsfNoStatReasonCode(I);
-	}
-
 	public String GetDsfVacant() {
 		return mdAddrJNI.GetDsfVacant(I);
-	}
-
-	public String GetDsfDNA() {
-		return mdAddrJNI.GetDsfDNA(I);
-	}
-
-	public String GetDropIndicator() {
-		return mdAddrJNI.GetDropIndicator(I);
 	}
 
 	public String GetCountryCode() {
@@ -770,40 +754,8 @@ public final static class MailboxLookupMode {
 		return mdAddrJNI.GetFalseTable(I);
 	}
 
-	public String GetPBSA() {
-		return mdAddrJNI.GetPBSA(I);
-	}
-
-	public String GetZipIncludeIn3553() {
-		return mdAddrJNI.GetZipIncludeIn3553(I);
-	}
-
-	public String GetThrowBack() {
-		return mdAddrJNI.GetThrowBack(I);
-	}
-
-	public String GetNSL() {
-		return mdAddrJNI.GetNSL(I);
-	}
-
-	public String GetDsfNonDelDayFlag() {
-		return mdAddrJNI.GetDsfNonDelDayFlag(I);
-	}
-
-	public String GetDsfNonDelDays() {
-		return mdAddrJNI.GetDsfNonDelDays(I);
-	}
-
 	public String GetDPVFootnotes() {
 		return mdAddrJNI.GetDPVFootnotes(I);
-	}
-
-	public String GetDPVConfirmationCode() {
-		return mdAddrJNI.GetDPVConfirmationCode(I);
-	}
-
-	public String GetEnhancedDpvCode() {
-		return mdAddrJNI.GetEnhancedDpvCode(I);
 	}
 
 	public String GetLACSLinkReturnCode() {
@@ -852,6 +804,14 @@ public final static class MailboxLookupMode {
 
 	public boolean FindSuggestionNext() {
 		return mdAddrJNI.FindSuggestionNext(I);
+	}
+
+	public String GetDsfNoStats() {
+		return mdAddrJNI.GetDsfNoStats(I);
+	}
+
+	public String GetDsfDNA() {
+		return mdAddrJNI.GetDsfDNA(I);
 	}
 
 	public int GetPS3553_B6_TotalRecords() {
