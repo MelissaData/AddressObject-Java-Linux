@@ -1,5 +1,3 @@
-
-
 # Compiled class file
 *.class
 
@@ -22,5 +20,6 @@ mdAddr.dll
 mdAddr.dll.hash
 libmdAddr.so
 libmdAddr.so.hash
-
+mdAddr_JavaCode.zip
+mdAddr_JavaCode.zip.hash
 

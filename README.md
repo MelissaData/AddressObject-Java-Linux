@@ -1,8 +1,6 @@
 # Melissa Address Object Linux Java
 
-
 ## Purpose
-
 This code showcases the Melissa Address Object using Java.
 
 Please feel free to copy or embed this code to your own project. Happy coding!
@@ -24,18 +22,11 @@ And return
 - City
 - State
 - Zip
-- ResultCodes
-
-
-----------------------------------------
+- Result Codes
 
 ## Tested Environments
-
-- Linux 64-bit Java 19.0.2
-- Ubuntu 20.04.05 LTS
-- Melissa data files for 2023-06
-
-----------------------------------------
+- Linux 64-bit Java 19.0.2, Ubuntu 20.04.05 LTS
+- Melissa data files for 2023-07
 
 ## Required Files and Programs
 
@@ -73,19 +64,15 @@ This file needs to be added as a Project Dependency.  This wrapper will need to 
 - mdSuiteFinder.db
 - month256.dat
 
- 
-----------------------------------------
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 This project is compatible with Java 19
 
 #### Install Java
-
 Before starting, make sure that Java has been correctly installed on your machine and your environment paths are configured. 
 
 You may find detailed instructions here:
 https://javahelps.com/install-oracle-jdk-19-on-linux
-
 
 You can download Java 19 here: 
 https://www.oracle.com/java/technologies/downloads/#jdk19-linux
@@ -94,7 +81,6 @@ Or you may also download Java 19 onto your Linux-based computer with
 `wget --no-check-certificate -c --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/java/19/latest/jdk-19_linux-x64_bin.tar.gz`
 
 You may have to add "sudo" before the above command as well if you are using a virtual machine.
-
 
 Next, navigate to where the JDK was downloaded and extract the contents. You may use the command:
 `sudo tar -xvzf ~/Downloads/jdk-19_linux-x64_bin.tar.gz`
@@ -133,12 +119,11 @@ If you see the version number then you have installed Java and set up your envir
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/AddressObject-Java-Linux.git
+$ git clone https://github.com/MelissaData/AddressObject-Java-Linux
 $ cd AddressObject-Java-Linux
 ```
 
 #### Set up Melissa Updater 
-
 Melissa Updater is a CLI application allowing the user to update their Melissa applications/data. 
 
 - In the root directory of the project, create a folder called `MelissaUpdater` by using the command: 
@@ -160,7 +145,6 @@ Melissa Updater is a CLI application allowing the user to update their Melissa a
 - Now that the Melissa Updater is set up, you can now proceed to move back into the project folder by using the command:
   
    `cd ..`
-
 
 ----------------------------------------
 
@@ -227,17 +211,12 @@ Parameters:
     ```
 This is the expected output of a successful setup for interactive mode:
 
-
-
 ![alt text](/screenshots/output.png)
 
-    
 ## Troubleshooting
-
 Troubleshooting for errors found while running your program.
 
 ### Errors:
-
 | Error      | Description |
 | ----------- | ----------- |
 | ErrorRequiredFileNotFound      | Program is missing a required file. Please check your Data folder and refer to the list of required files above. If you are unable to obtain all required files through the Melissa Updater, please contact technical support below. |
@@ -245,9 +224,7 @@ Troubleshooting for errors found while running your program.
 | ErrorFoundOldFile   | File(s) are out of date. Please make sure you are downloading and using the latest release version. (If using the Melissa Updater, check powershell script for '$RELEASE_VERSION = {version}'  and change the release version if you are using an out of date release).    |
 | ErrorLicenseExpired   | Expired license string. Please contact technical support below. |
 
-
 ## Contact Us
-
 For free technical support, please call us at 800-MELISSA ext. 4
 (800-635-4772 ext. 4) or email us at tech@Melissa.com.
 
