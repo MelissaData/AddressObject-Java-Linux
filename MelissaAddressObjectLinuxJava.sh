@@ -73,7 +73,7 @@ done
 
 
 # ######################### Config ###########################
-RELEASE_VERSION='2023.07'
+RELEASE_VERSION='2023.08'
 ProductName="DQ_ADDR_DATA"
 
 # Uses the location of the .sh file 
@@ -134,7 +134,7 @@ DownloadDataFiles()
 
 DownloadSO() 
 {
-    printf "\nMELISSA UPDATER IS DOWNLOADING SO(s)...\n"
+    printf "\nMELISSA UPDATER IS DOWNLOADING SO(S)...\n"
     
     # Check for quiet mode
     if [ $quiet == "true" ];
