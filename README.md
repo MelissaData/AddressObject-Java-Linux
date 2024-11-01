@@ -28,7 +28,7 @@ And return
 
 ## Tested Environments
 - Linux 64-bit Java 19.0.2, Ubuntu 20.04.05 LTS
-- Melissa data files for 2024-09
+- Melissa data files for 2024-10
 
 ## Required Files and Programs
 
@@ -121,8 +121,8 @@ If you see the version number then you have installed Java and set up your envir
 
 #### Download this project
 ```
-$ git clone https://github.com/MelissaData/AddressObject-Java-Linux
-$ cd AddressObject-Java-Linux
+git clone https://github.com/MelissaData/AddressObject-Java-Linux
+cd AddressObject-Java-Linux
 ```
 
 #### Set up Melissa Updater 
@@ -183,35 +183,35 @@ Parameters:
 - --quiet (optional): add to the command if you do not want to get any console output from the Melissa Updater
 - Interactive 
 
-	The script will prompt the user for an address, city, state, and zip, then use the provided inputs to test Address Object. For example:
-	```
-	$ ./MelissaAddressObjectLinuxJava.sh
-	```
-    For quiet mode:
-    ```
-    $ ./MelissaAddressObjectLinuxJava.sh -quiet
-    ```
+  The script will prompt the user for an address, city, state, and zip, then use the provided inputs to test Address Object. For example:
+  ```
+  ./MelissaAddressObjectLinuxJava.sh
+  ```
+  For quiet mode:
+  ```
+  ./MelissaAddressObjectLinuxJava.sh -quiet
+  ```
 - Command Line 
 
-	You can pass an address, city, state, zip, and a license string into the ```--address```, ```--city```, ```--state```, ```--zip```, and ```--license``` parameters respectively to test Address Object. For example:
+  You can pass an address, city, state, zip, and a license string into the ```--address```, ```--city```, ```--state```, ```--zip```, and ```--license``` parameters respectively to test Address Object. For example:
 
-    With all parameters:
-    ```
-    $ ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688"
-    $ ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688" --license "<your_license_string>"
-    ```
+  With all parameters:
+  ```
+  ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688"
+  ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688" --license "<your_license_string>"
+  ```
 
-    With any known (optional) parameters:
-    ```
-    $ ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --state "CA" 
-    $ ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --state "CA" --license "<your_license_string>"
-    ```
+  With any known (optional) parameters:
+  ```
+  ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --state "CA" 
+  ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --state "CA" --license "<your_license_string>"
+  ```
 
-    For quiet mode:
-    ```
-    $ ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688" --quiet
-    $ ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688" --license "<your_license_string>" --quiet
-    ```
+  For quiet mode:
+  ```
+  ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688" --quiet
+  ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688" --license "<your_license_string>" --quiet
+  ```
 This is the expected output of a successful setup for interactive mode:
 
 ![alt text](/screenshots/output.png)
