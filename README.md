@@ -28,7 +28,7 @@ And return
 
 ## Tested Environments
 - Linux 64-bit Java 19.0.2, Ubuntu 20.04.05 LTS
-- Melissa data files for 2025-06
+- Melissa data files for 2025-07
 
 ## Required Files and Programs
 
