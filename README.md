@@ -128,8 +128,8 @@ If you see the version number then you have installed Java and set up your envir
 
 #### Download this project
 ```
-git clone https://git.melissadata.com/dtgroup/melissadataobjectexamples/java/melissaaddressobjectlinuxjava.git
-cd melissaaddressobjectlinuxjava
+git clone https://github.com/MelissaData/AddressObject-Java-Linux
+cd AddressObject-Java-Linux
 ```
 
 #### Set up Melissa Updater 
