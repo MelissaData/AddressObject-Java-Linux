@@ -1,7 +1,41 @@
 #!/bin/bash
 
-# Name:    MelissaAddressObjectLinuxJava
-# Purpose: Use the Melissa Updater to make the MelissaAddressObjectLinuxJava code usable
+# MelissaAddressObjectLinuxJava
+#
+# Downloads the required components and then compiles, packages, and runs MelissaAddressObjectLinuxJava.
+#
+# This script uses the Melissa Updater to fetch the data file(s), the shared object(s), the
+# JNI wrapper shared object, and a zip of the Java interface source, expands that zip into
+# com/melissadata, verifies the product shared object(s) downloaded, then compiles the
+# sample with javac, packages it into a jar, and runs it against the supplied address.
+#
+# Overall flow:
+#   1. Read parameters / prompt for the license and data path.
+#   2. Download data file(s), the shared object(s), and the Java wrapper via the Melissa
+#      Updater, expanding the interface source into com/melissadata.
+#   3. Confirm the product shared object(s) are present (the JNI wrapper is not checked).
+#   4. Compile, package, and run (single test address or interactive).
+#
+# Options:
+#   --address <value>   Street address to verify.
+#   --city <value>      City for the address to verify.
+#   --state <value>     State/province for the address to verify.
+#   --zip <value>       ZIP/postal code for the address to verify.
+#   --dataPath <value>  Path to an existing data files directory. If omitted, the script
+#                       prompts for a path; pressing Enter at that prompt skips it and
+#                       downloads the data files into the project's Data folder via the
+#                       Melissa Updater. A path that does not exist aborts the script.
+#   --license <value>   License string. Resolved in this order:
+#                         1. This option.
+#                         2. An interactive prompt, if the option was not supplied.
+#                         3. The MD_LICENSE environment variable, if the prompt was left blank.
+#                       Note that the environment variable is the last resort, not the first:
+#                       running without --license always prompts, even when MD_LICENSE is set.
+#   --quiet             Suppresses the Melissa Updater console output during downloads.
+#
+# Examples:
+#   ./MelissaAddressObjectLinuxJava.sh --license "your-license"
+#   ./MelissaAddressObjectLinuxJava.sh --address "22382 Avenida Empresa" --city "Rancho Santa Margarita" --state "CA" --zip "92688" --license "your-license"
 
 ######################### Constants ##########################
 
@@ -84,6 +118,7 @@ done
 
 
 # ######################### Config ###########################
+# Product release the updater pulls files for
 RELEASE_VERSION='2026.08'
 ProductName="DQ_ADDR_DATA"
 
@@ -108,7 +143,7 @@ then
     exit 1
 fi
 
-# Config variables for download file(s)
+# Binary/shared object(s) needed to run the example
 Config_FileName="libmdAddr.so"
 Config_ReleaseVersion=$RELEASE_VERSION
 Config_OS="LINUX"
@@ -116,6 +151,9 @@ Config_Compiler="GCC48"
 Config_Architecture="64BIT"
 Config_Type="BINARY"
 
+# The JNI wrapper shared object and the zip of Java interface source that
+# exposes the shared object(s) to the sample; the zip is expanded into
+# com/melissadata
 Wrapper_FileName="libmdAddrJavaWrapper.so"
 Wrapper_ReleaseVersion=$RELEASE_VERSION
 Wrapper_OS="LINUX"
@@ -131,6 +169,7 @@ Com_Architecture="ANY"
 Com_Type="INTERFACE"
 
 # ######################## Functions #########################
+# Download the product data file(s) into $DataPath via the Melissa Updater.
 DownloadDataFiles()
 {
     printf "========================== MELISSA UPDATER =========================\n"
@@ -147,6 +186,7 @@ DownloadDataFiles()
     printf "Melissa Updater finished downloading data file(s)!\n"
 }
 
+# Download the shared object(s) into the project folder.
 DownloadSO() 
 {
     printf "\nMELISSA UPDATER IS DOWNLOADING SO(S)...\n"
@@ -172,6 +212,9 @@ DownloadSO()
     printf "Melissa Updater finished downloading $Config_FileName!\n"
 }
 
+# Download the JNI wrapper shared object and the Java interface zip, then
+# expand the zip into com/melissadata (replacing any previous copy). Aborts
+# if the zip is missing after the download.
 DownloadWrappers() 
 {    
     # Check for quiet mode
@@ -233,6 +276,7 @@ DownloadWrappers()
     fi
 }
 
+# Verify the expected shared object(s) landed in the project folder
 CheckSOs() 
 {
     if [ ! -f $ProjectPath/$Config_FileName ];
@@ -309,6 +353,8 @@ printf "\nAll file(s) have been downloaded/updated!\n"
 
 # Start
 # Build project
+# Compile the sample against the sources extracted into com/melissadata,
+# then package the classes and shared object(s) into a runnable jar.
 cd $ProjectPath
 printf "\n=========================== BUILD PROJECT ==========================\n"
 javac -cp .:com/melissadata/*.java MelissaAddressObjectLinuxJava.java
@@ -316,6 +362,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/.
 jar cvfm MelissaAddressObjectLinuxJava.jar manifest.txt com/melissadata/*.class *.class *.so
 
 # Run project
+# No address supplied -> run interactively; otherwise pass the address in.
 if [ -z "$address" ] && [ -z "$city" ] && [ -z "$state" ] && [ -z "$zip" ];
 then
     java -jar MelissaAddressObjectLinuxJava.jar --license $license --dataPath $DataPath
